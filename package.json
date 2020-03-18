@@ -1,0 +1,22 @@
+{
+  "name": "vostizzamap",
+  "version": "1.0.0",
+  "description": "Venetian Vostizza web map",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/glaubius/VostizzaMap.git"
+  },
+  "author": "Jen Glaubius, The Helonaki",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/glaubius/VostizzaMap/issues"
+  },
+  "homepage": "https://github.com/glaubius/VostizzaMap#readme",
+  "dependencies": {
+    "leaflet-ajax": "^2.1.0"
+  }
+}
