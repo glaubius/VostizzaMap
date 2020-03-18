@@ -1,4 +1,5 @@
 /*jshint esversion: 6 */
+app.use('/scripts', express.static(__dirname + '/node_modules/leaflet-ajax/dist/'));
 
 console.log('L', L);
 
