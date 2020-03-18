@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/glaubius/VostizzaMap#readme",
   "dependencies": {
+    "bootstrap": "^4.4.1",
     "express": "^4.17.1",
     "leaflet-ajax": "^2.1.0",
     "nodemon": "^2.0.2"
