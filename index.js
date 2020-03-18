@@ -180,7 +180,7 @@ var villaStyle = {
 };
 
 var settlementStyle = {
-  "radius": 8,
+  "radius": 2,
   "fillColor": "#000000",
   "color": "#000000",
   "weight": 1,
