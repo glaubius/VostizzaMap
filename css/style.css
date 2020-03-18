@@ -3,6 +3,10 @@ html, body {
   height: 100%;
 }
 
+h1 {
+  color: blue;
+}
+
 #map {
   width: 960px;
   height: 500px;
