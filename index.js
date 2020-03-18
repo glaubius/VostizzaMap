@@ -1,8 +1,8 @@
 /*jshint esversion:6 */
 console.log('L', L);
 
-const position = [38.2500, 22.0833];
-const initZoom = 9;
+const position = [38.1500, 22.2133];
+const initZoom = 11;
 const map = L.map('map').setView(position, initZoom);
 
 L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
