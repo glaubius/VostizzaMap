@@ -157,14 +157,8 @@ var settlements = {
 
 
 villas.addTo(map);
-// L.geoJSON(villas, {
-//   style: villaStyle
-// }).addTo(map);
 
 rivers.addTo(map);
-// L.geoJSON(rivers, {
-//   style: riverStyle
-// }).addTo(map);
 
 L.geoJSON(settlements, {
   pointToLayer: function (feature, latlng) {
