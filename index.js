@@ -41,6 +41,15 @@ var settlementStyle = {
   "fillOpacity": 0.8,
 };
 
+var locationStyle = {
+  "radius": 2,
+  "fillColor": "#ECF308",
+  "color": "#000000",
+  "weight": 1,
+  "opacity": 1,
+  "fillOpacity": 0.8,
+};
+
 var rivers = new L.GeoJSON.AJAX("data/rivers.geojson", {style: riverStyle});
 
 var villas = new L.GeoJSON.AJAX("data/villas.geojson", {style: villaStyle});
@@ -51,8 +60,11 @@ var settlements = new L.GeoJSON.AJAX("data/settlements.geojson", {
   }
 });
 
-
-
+var locations = new L.GeoJSON.AJAX("data/locations.geojson", {
+  pointToLayer: function (feature, latlng) {
+    return L.circleMarker(latlng, locationStyle);
+  }
+});
 
 
 villas.addTo(map);
@@ -61,6 +73,6 @@ rivers.addTo(map);
 
 settlements.addTo(map);
 
-
+locations.addTo(map);
 
 console.log('map', map);
