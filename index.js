@@ -20,7 +20,28 @@ function onEachFeature(feature, layer) {
   }
 }
 
-var rivers = new L.GeoJSON.AJAX("data/rivers.geojson");
+var riverStyle = {
+  "color": '#3933FF',
+  "weight": 3,
+  "opacity": 0.65,
+};
+
+var villaStyle = {
+  "color": '#7E16A8',
+  "weight": 1,
+  "opacity": 0.7,
+};
+
+var settlementStyle = {
+  "radius": 2,
+  "fillColor": "#000000",
+  "color": "#000000",
+  "weight": 1,
+  "opacity": 1,
+  "fillOpacity": 0.8,
+};
+
+var rivers = new L.GeoJSON.AJAX("data/rivers.geojson", {style: riverStyle});
 
 // var rivers = {
 //   "type": "FeatureCollection",
@@ -167,26 +188,7 @@ var settlements = {
 };
 
 
-var riverStyle = {
-  "color": '#3933FF',
-  "weight": 3,
-  "opacity": 0.65,
-};
 
-var villaStyle = {
-  "color": '#7E16A8',
-  "weight": 1,
-  "opacity": 0.7,
-};
-
-var settlementStyle = {
-  "radius": 2,
-  "fillColor": "#000000",
-  "color": "#000000",
-  "weight": 1,
-  "opacity": 1,
-  "fillOpacity": 0.8,
-};
 
 L.geoJSON(villas, {
   style: villaStyle
