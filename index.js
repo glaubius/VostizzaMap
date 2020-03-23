@@ -61,30 +61,29 @@ var locationStyle = {
   "fillOpacity": 0.8,
 };
 
-var rivers = new L.GeoJSON.AJAX("data/rivers.geojson", {style: riverStyle});
+var rivers = new L.GeoJSON.AJAX("data/rivers.geojson", {style: riverStyle}).addTo(map);
 
-var villas = new L.GeoJSON.AJAX("data/villas.geojson", {style: popStyle});
+var villas = new L.GeoJSON.AJAX("data/villas.geojson", {
+  style: popStyle,
+  onEachFeature: function (feature, layer) {
+    layer.on('mouseover', highlightFeature);
+    layer.on('mouseout', function () {
+      villas.resetStyle(this);
+    });
+  }
+}).addTo(map);
 
 var settlements = new L.GeoJSON.AJAX("data/settlements.geojson", {
   pointToLayer: function (feature, latlng) {
     return L.circleMarker(latlng, settlementStyle);
   }
-});
+}).addTo(map);
 
 var locations = new L.GeoJSON.AJAX("data/locations.geojson", {
   pointToLayer: function (feature, latlng) {
     return L.circleMarker(latlng, locationStyle);
   }
-});
-
-
-villas.addTo(map);
-
-rivers.addTo(map);
-
-settlements.addTo(map);
-
-locations.addTo(map);
+}).addTo(map);
 
 function getColor(d) {
   return d > 500 ? '#045a8d' :
@@ -93,6 +92,33 @@ function getColor(d) {
         d > 20 ? '#a6bddb' :
         d > 10 ? '#d0d1e6' :
                   '#f1eef6';
+}
+
+function highlightFeature(e) {
+  var layer = e.target;
+
+  layer.setStyle({
+    weight: 5,
+    color: '#666',
+    dashArray: '',
+    fillOpacity: 0.7
+  });
+
+  if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
+    layer.bringToFront();
+  }
+}
+
+function resetHighlight(e) {
+  geojson.resetStyle(e.target);
+}
+
+
+function onEachVilla(feature, layer) {
+  layer.on({
+    mouseover: highlightFeature,
+    mouseout: resetHighlight,
+  });
 }
 
 
