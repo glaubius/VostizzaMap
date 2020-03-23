@@ -95,6 +95,21 @@ function getColor(d) {
                   '#f1eef6';
 }
 
+function highlightVilla(e) {
+  var layer = e.target;
+
+  layer.setStyle({
+    weight: 5,
+    color: '#666',
+    dashArray: '',
+    fillOpacity: 0.7
+  });
+
+  if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
+    layer.bringToFront();
+  }
+}
+
 
 
 console.log('map', map);
