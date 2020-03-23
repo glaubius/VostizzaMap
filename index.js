@@ -69,6 +69,7 @@ var villas = new L.GeoJSON.AJAX("data/villas.geojson", {
     layer.on('mouseover', highlightFeature);
     layer.on('mouseout', function () {
       villas.resetStyle(this);
+      info.update();
     });
   }
 }).addTo(map);
@@ -107,10 +108,12 @@ function highlightFeature(e) {
   if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
     layer.bringToFront();
   }
+  info.update(layer.feature.properties);
 }
 
 function resetHighlight(e) {
   geojson.resetStyle(e.target);
+  info.update();
 }
 
 
@@ -121,6 +124,21 @@ function onEachVilla(feature, layer) {
   });
 }
 
+var info = L.control();
+
+info.onAdd = function (map) {
+  this._div = L.DomUtil.create('div', 'info');
+  this.update();
+  return this._div;
+};
+
+info.update = function (props) {
+  this._div.innerHTML = '<h4> Villa Population</h4>' + (props ? '<b>' + props.Name_Total
+    + '</b><br />' + props.Villas_data2019Use_TotalPop + ' estimated people'
+    : 'Hover over a villa');
+};
+
+info.addTo(map);
 
 
 console.log('map', map);
