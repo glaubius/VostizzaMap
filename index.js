@@ -134,7 +134,8 @@ info.onAdd = function (map) {
 
 info.update = function (props) {
   this._div.innerHTML = '<h4> Villa Population</h4>' + (props ? '<b>' + props.Name_Total
-    + '</b><br />' + props.Villas_data2019Use_TotalPop + ' estimated people'
+    + '</b><br />' + props.Villas_data2019Use_TotNumFamilies + ' families <br>'
+    + props.Villas_data2019Use_TotalPop + ' estimated people'
     : 'Hover over a villa');
 };
 
