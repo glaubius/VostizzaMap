@@ -75,4 +75,13 @@ settlements.addTo(map);
 
 locations.addTo(map);
 
+function getColor(d) {
+  return d > 500 ? '#045a8d' :
+        d > 100 ? '#2b8cbe' :
+        d > 50 ? '#74a9cf' :
+        d > 20 ? '#a6bddb' :
+        d > 10 ? '#d0d1e6' :
+                  '#f1eef6';
+}
+
 console.log('map', map);
