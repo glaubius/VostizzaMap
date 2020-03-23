@@ -32,6 +32,17 @@ var villaStyle = {
   "opacity": 0.7,
 };
 
+function popStyle(feature) {
+  return {
+    fillColor: getColor(feature.properties.Villas_data2019Use_TotalPop),
+    weight: 2,
+    opacity: 1,
+    color: 'white',
+    dashArray: '3',
+    fillOpacity: 0.7
+  };
+}
+
 var settlementStyle = {
   "radius": 2,
   "fillColor": "#000000",
@@ -52,7 +63,7 @@ var locationStyle = {
 
 var rivers = new L.GeoJSON.AJAX("data/rivers.geojson", {style: riverStyle});
 
-var villas = new L.GeoJSON.AJAX("data/villas.geojson", {style: villaStyle});
+var villas = new L.GeoJSON.AJAX("data/villas.geojson", {style: popStyle});
 
 var settlements = new L.GeoJSON.AJAX("data/settlements.geojson", {
   pointToLayer: function (feature, latlng) {
@@ -83,5 +94,7 @@ function getColor(d) {
         d > 10 ? '#d0d1e6' :
                   '#f1eef6';
 }
+
+
 
 console.log('map', map);
