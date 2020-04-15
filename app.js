@@ -9,6 +9,8 @@ const app = express();
 
 const port = 3000;
 
+let settlements = require('./data/settlements.geojson');
+
 mongoose.connect("mongodb://localhost:27017/VostizzaDB", {
   useNewUrlParser: true,
   useUnifiedTopology: true
@@ -26,20 +28,23 @@ const locationsSchema = new mongoose.Schema({
 
 const Location = mongoose.model("Location", locationsSchema);
 
-const place = new Location ({
-  type: "Feature",
-  properties: {
-    name: "Paleo Castro",
-    type: "Castro",
-    inhabited: false
-  },
-  geometry: {
-    type: "Point",
-    coordinates: [21.990027723810478, 38.225084511992108]
-  }
+settlements.forEach(function(settlement) {
+  new Location(settlement).save();
 });
-
-place.save();
+// const place = new Location ({
+//   type: "Feature",
+//   properties: {
+//     name: "Paleo Castro",
+//     type: "Castro",
+//     inhabited: false
+//   },
+//   geometry: {
+//     type: "Point",
+//     coordinates: [21.990027723810478, 38.225084511992108]
+//   }
+// });
+//
+// place.save();
 
 
 app.get("/", function(req, res) {
