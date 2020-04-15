@@ -1,10 +1,44 @@
 {
-"type": "FeatureCollection",
-"name": "locations",
-"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
-"features": [
-{ "type": "Feature", "properties": { "Name": "Paleo Castro", "Type": "Castro" }, "geometry": { "type": "Point", "coordinates": [ 21.990027723810478, 38.225084511992108 ] } },
-{ "type": "Feature", "properties": { "Name": "Paleo Castro", "Type": "Castro" }, "geometry": { "type": "Point", "coordinates": [ 21.967121794090581, 38.218718119654653 ] } },
-{ "type": "Feature", "properties": { "Name": "Chiesa della Madona", "Type": "Church" }, "geometry": { "type": "Point", "coordinates": [ 22.066158496250956, 38.180781540474186 ] } }
-]
+  "type": "FeatureCollection",
+  "name": "locations",
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "urn:ogc:def:crs:OGC:1.3:CRS84"
+    }
+  },
+  "features": [{
+      "type": "Feature",
+      "properties": {
+        "Name": "Paleo Castro",
+        "Type": "Castro"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [21.990027723810478, 38.225084511992108]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Paleo Castro",
+        "Type": "Castro"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [21.967121794090581, 38.218718119654653]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Chiesa della Madona",
+        "Type": "Church"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [22.066158496250956, 38.180781540474186]
+      }
+    }
+  ]
 }

@@ -21,10 +21,7 @@ const locationsSchema = new mongoose.Schema({
     type: { type: String },
     inhabited: Boolean
   },
-  geometry: {
-    type: { type: String },
-    coordinates: [mongoose.Decimal1128, mongoose.Decimal1128]
-  }
+  geometry: mongoose.Schema.Types.Geometry
 });
 
 const Location = mongoose.model("Location", locationsSchema);
